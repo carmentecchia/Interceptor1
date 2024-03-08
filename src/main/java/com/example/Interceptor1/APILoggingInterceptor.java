@@ -10,9 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Component
 public class APILoggingInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-      long startTime = System.currentTimeMillis();
-        System.out.println("Request URL:: " + request.getRequestURL().toString()+ "::start Time=" + System.currentTimeMillis());
-        request.setAttribute("startTime", startTime);
+        System.out.println("Request User-Agent: "+ request.getHeader("user"));
         return true;
     }
 
